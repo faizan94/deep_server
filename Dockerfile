@@ -29,6 +29,10 @@ RUN conda install -y \
     pymongo
 
 RUN conda install -y \
+    flask
+    flask-cors \
+    gevent \
+    requests \
     jupyter \
     matplotlib \
     seaborn \
@@ -40,5 +44,8 @@ RUN conda install -y \
 VOLUME /notebook
 WORKDIR /notebook
 EXPOSE 8888
+# EXPOSE 7171
+
+COPY keras-server /notebook/
 
 CMD jupyter notebook --allow-root --no-browser --ip=0.0.0.0 --NotebookApp.token=

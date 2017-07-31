@@ -17,7 +17,15 @@ docker run -d -p 8888:8888 -p 7171:7171 --name deep deep_server
 docker exec -it deep bash 
 ```
 
-### To 
+### To Open Jupyter in a browser
+```
+http://localhost:8888
+```
+
+### To get the prediction out from the server
+```
+curl -H "Content-Type: application/json" -X POST -d '{"X_input":[1,0]}' http://localhost:7171/predict
+```
 
 ### Reference
 ```
